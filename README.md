@@ -6,10 +6,6 @@ Supported platform:
 
 Provides Live Camera images over HTTP (over Wifi or locally to a Cordova Application):
 
-* browse the files in mobile device with a browser in PC.
-* copy files from mobile device to PC quickly, just with Wifi.
-* use cordova webview to access the assets/www/ content with http protocol.
-
 Why over HTTP ?
 
 * There is a memory leak problem when retrieving data/result in Cordova (see https://github.com/Moonware/cordova-cameraplus)
@@ -48,7 +44,8 @@ getJpegImage( success_callback, error_callback );
 
 Start the Web Server
 
-``` cordova.plugins.CameraServer.startServer({
+```javascript
+cordova.plugins.CameraServer.startServer({
     'www_root' : '/',
     'port' : 8080,
     'localhost_only' : false,
@@ -68,7 +65,8 @@ Start the Web Server
 
 Start the Camera Capture (will act on demand when a HTTP request arrives)
 
-``` cordova.plugins.CameraServer.startCamera(function(){
+```javascript
+cordova.plugins.CameraServer.startCamera(function(){
       console.log('Capture Started');
 
   },function( error ){
@@ -81,7 +79,8 @@ Start the Camera Capture (will act on demand when a HTTP request arrives)
 
 Retrieving an image in Javascript (AngluarJS / Ionic)
 
-``` var localImg = 'http://localhost:8080/live.jpg';
+```javascript
+var localImg = 'http://localhost:8080/live.jpg';
 
 $http.get(localImg).
     success(function(data, status, headers, config) {
@@ -92,13 +91,12 @@ $http.get(localImg).
     });
 ```
 
-# Application #
+## Usage in "real" application ##
 
 This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</strong>:
 
 [Netcam Studio Smart Camera iOS](https://itunes.apple.com/us/app/netcam-studio-smart-camera/id974703108)
 [Netcam Studio Smart Camera Android](https://play.google.com/store/apps/details?id=com.moonware.smart&hl=en)
-
 
 # Credits #
 
@@ -106,7 +104,7 @@ This Cordova plugin is  based on CorHttpd, thanks to the authors:
 
 * [CorHttpd] https://github.com/floatinghotpot/cordova-httpd
 
-which is itself based on:
+Which is itself based on:
 
 * [NanoHTTPD](https://github.com/NanoHttpd/nanohttpd), written in java, for java / android, by psh.
 * [CocoaHTTPServer](https://github.com/robbiehanson/CocoaHTTPServer), written in Obj-C, for iOS / Mac OS X, by robbiehanson.
