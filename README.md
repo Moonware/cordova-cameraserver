@@ -70,7 +70,7 @@ cordova.plugins.CameraServer.startCamera(function(){
   });
 ```
 
-Retrieving an image in Javascript (AngluarJS / Ionic)
+Downloading a Live Image in Javascript (AngluarJS / Ionic)
 
 ```javascript
 var localImg = 'http://localhost:8080/live.jpg';
@@ -82,6 +82,12 @@ $http.get(localImg).
     error(function(data, status, headers, config) {
         console.log("Image Download failed");
     });
+```
+
+Displaying a Live Image in Cordova App, As simple as:
+
+```html
+<img src='http://localhost:8080/live.jpg'>
 ```
 
 ## Usage in applications ##
