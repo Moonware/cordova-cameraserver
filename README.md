@@ -54,13 +54,10 @@ cordova.plugins.CameraServer.startServer({
     // if server is up, it will return the url of http://<server ip>:port/
     // the ip is the active network connection
     // if no wifi or no cell, "127.0.0.1" will be returned.
-
     console.log('CameraServer Started @ ' + url); 
-
 }, function( error ){
     console.log('CameraServer Start failed: ' + error);
 });
-
 ```
 
 Start the Camera Capture (will act on demand when a HTTP request arrives)
@@ -68,13 +65,9 @@ Start the Camera Capture (will act on demand when a HTTP request arrives)
 ```javascript
 cordova.plugins.CameraServer.startCamera(function(){
       console.log('Capture Started');
-
   },function( error ){
       console.log('CameraServer StartCapture failed: ' + error);
   });
-} else {
-      console.log('CameraServer StartCapture: CameraServer plugin not available/ready.');
-}
 ```
 
 Retrieving an image in Javascript (AngluarJS / Ionic)
