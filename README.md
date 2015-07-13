@@ -8,7 +8,7 @@ Provides Live Camera images over HTTP (over Wifi or locally to a Cordova Applica
 
 Why over HTTP ?
 
-* There is a memory leak problem when retrieving data/result in Cordova (see [CameraPlus](https://github.com/Moonware/cordova-cameraplus/))
+* A known memory leak problem occurs when retrieving data/result in Cordova (see [CameraPlus](https://github.com/Moonware/cordova-cameraplus/))
 * It's faster and purely in native code so it was suitable for our application <strong>Netcam Studio Smart Camera</strong>
 
 ## How to use CameraServer? ##
