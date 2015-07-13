@@ -91,7 +91,7 @@ $http.get(localImg).
     });
 ```
 
-## Usage in "real" application ##
+## Usage in applications ##
 
 This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</strong>:
 
@@ -99,11 +99,11 @@ This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</
 
 [Netcam Studio Smart Camera Android](https://play.google.com/store/apps/details?id=com.moonware.smart&hl=en)
 
-# Credits #
+## Credits ##
 
 This Cordova plugin is  based on CorHttpd, thanks to the authors:
 
-* [CorHttpd] https://github.com/floatinghotpot/cordova-httpd
+* [CorHttpd](https://github.com/floatinghotpot/cordova-httpd), by floatinghotpot
 
 Which is itself based on:
 
