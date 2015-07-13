@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin 
+id="com.moonware.cameraserver"
+version="0.2.0"
+xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<name>CameraServer</name>
+<description>CameraServer is a plugin providing Live Camera Pictures (JPEG) over HTTP</description>
+<author>Steve Niquille</author>
+<license>MIT</license>
+<keywords>camera,server,http,web,jpeg,ios,android</keywords>
+<repo>https://github.com/moonware/phonegap-cameraserver</repo>
+<issue>https://github.com/moonware/phonegap-cameraserver</issue>
+
+<engines>
+    <engine name="cordova" version=">=2.9" />
+</engines>
+
+<js-module name="CameraServer" src="www/CameraServer.js">
+    <clobbers target="cordova.plugins.CameraServer" />
+</js-module>
+
+<platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+        <feature name="CameraServer">
+        <param name="android-package" value="com.moonware.cameraserver.CameraServer" />
+        </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.FLASHLIGHT" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+    </config-file>
+
+    <source-file src="src/android/CameraServer.java" target-dir="src/com/moonware/cameraserver" />
+    <source-file src="src/android/CameraManager.java" target-dir="src/com/moonware/cameraserver" />
+    <source-file src="src/android/AndroidFile.java" target-dir="src/com/moonware/cameraserver" />
+    <source-file src="src/android/NanoHTTPD.java" target-dir="src/com/moonware/cameraserver" />
+    <source-file src="src/android/WebServer.java" target-dir="src/com/moonware/cameraserver" />
+</platform>
+
+<platform name="ios">
+    <config-file parent="/*" target="config.xml">
+    <feature name="CameraServer">
+        <param name="ios-package" value="CameraServer" />
+    </feature>
+    </config-file>
+
+    <source-file src="src/ios/CameraServer.m" />
+
+    <header-file src="src/ios/CocoaHttpd/HTTPLogging.h" />
+    <header-file src="src/ios/CocoaHttpd/HTTPServer.h" />
+    <source-file src="src/ios/CocoaHttpd/HTTPServer.m" />
+    <header-file src="src/ios/CocoaHttpd/WebSocket.h" />
+    <source-file src="src/ios/CocoaHttpd/WebSocket.m" />
+    <header-file src="src/ios/CocoaHttpd/HTTPMessage.h" />
+    <source-file src="src/ios/CocoaHttpd/HTTPMessage.m" />
+    <header-file src="src/ios/CocoaHttpd/HTTPAuthenticationRequest.h" />
+    <source-file src="src/ios/CocoaHttpd/HTTPAuthenticationRequest.m" />
+    <header-file src="src/ios/CocoaHttpd/HTTPConnection.h" />
+    <source-file src="src/ios/CocoaHttpd/HTTPConnection.m" />
+    <header-file src="src/ios/CocoaHttpd/HTTPResponse.h" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPAsyncFileResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPAsyncFileResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPErrorResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPErrorResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPDynamicFileResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPDynamicFileResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPRedirectResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPRedirectResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPFileResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPFileResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPDataResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPDataResponse.m" />
+    <header-file src="src/ios/CocoaHttpd/Mime/MultipartFormDataParser.h" />
+    <source-file src="src/ios/CocoaHttpd/Mime/MultipartFormDataParser.m" />
+    <header-file src="src/ios/CocoaHttpd/Mime/MultipartMessageHeader.h" />
+    <source-file src="src/ios/CocoaHttpd/Mime/MultipartMessageHeader.m" />
+    <header-file src="src/ios/CocoaHttpd/Mime/MultipartMessageHeaderField.h" />
+    <source-file src="src/ios/CocoaHttpd/Mime/MultipartMessageHeaderField.m" />
+    <header-file src="src/ios/CocoaHttpd/Categories/DDData.h" />
+    <source-file src="src/ios/CocoaHttpd/Categories/DDData.m" />
+    <header-file src="src/ios/CocoaHttpd/Categories/DDNumber.h" />
+    <source-file src="src/ios/CocoaHttpd/Categories/DDNumber.m" />
+    <header-file src="src/ios/CocoaHttpd/Categories/DDRange.h" />
+    <source-file src="src/ios/CocoaHttpd/Categories/DDRange.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaAsyncSocket/GCDAsyncSocket.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaAsyncSocket/GCDAsyncSocket.m" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDAbstractDatabaseLogger.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDAbstractDatabaseLogger.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDFileLogger.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDFileLogger.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDASLLogger.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDASLLogger.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDTTYLogger.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDTTYLogger.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDLog.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/DDLog.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/Extensions/ContextFilterLogFormatter.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/Extensions/ContextFilterLogFormatter.m" />
+    <header-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/Extensions/DispatchQueueLogFormatter.h" />
+    <source-file src="src/ios/CocoaHttpd/Vendor/CocoaLumberjack/Extensions/DispatchQueueLogFormatter.m" />
+
+    <framework src="CFNetwork.framework" />
+    <framework src="Foundation.framework" />
+    <framework src="Security.framework" />
+
+    <!-- Added by Steve -->
+
+    <header-file src="src/ios/CameraManager/CameraManager.h" />
+    <source-file src="src/ios/CameraManager/CameraManager.m" />
+
+    <!--
+    <header-file src="src/ios/CameraManager/Base64.h" />
+    <source-file src="src/ios/CameraManager/Base64.m" />
+    -->
+    
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPVideoResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPVideoResponse.m" />
+
+    <header-file src="src/ios/CocoaHttpd/Responses/HTTPJsonResponse.h" />
+    <source-file src="src/ios/CocoaHttpd/Responses/HTTPJsonResponse.m" />
+
+    <framework src="CoreVideo.framework" weak="false" />
+    <framework src="CoreGraphics.framework" weak="false" />
+    <framework src="QuartzCore.framework" weak="false" />
+
+</platform>
+
+</plugin>
