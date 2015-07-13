@@ -96,6 +96,7 @@ $http.get(localImg).
 This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</strong>:
 
 [Netcam Studio Smart Camera iOS](https://itunes.apple.com/us/app/netcam-studio-smart-camera/id974703108)
+
 [Netcam Studio Smart Camera Android](https://play.google.com/store/apps/details?id=com.moonware.smart&hl=en)
 
 # Credits #
