@@ -84,7 +84,7 @@ $http.get(localImg).
     });
 ```
 
-Displaying a Live Image in Cordova App, As simple as:
+Displaying a Live Image in a Cordova App is as simple as:
 
 ```html
 <img src='http://localhost:8080/live.jpg'>
