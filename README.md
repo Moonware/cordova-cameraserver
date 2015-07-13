@@ -111,4 +111,6 @@ Which is itself based on:
 
 You can use this plugin for FREE. 
 
-Feel free to fork, improve and send pull request.
+Feel free to fork, improve and send pull request. 
+
+We will of course appreciate if you share any improvement or addition made to the plugin.
