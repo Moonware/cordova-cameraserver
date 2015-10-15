@@ -477,8 +477,10 @@ public class NanoHTTPD {
 				if (r == null)
 					sendError(HTTP_INTERNALERROR,
 							"SERVER INTERNAL ERROR: Serve() returned a null response.");
-				else
+				else {
+					r.addHeader("Access-Control-Allow-Origin", "*");
 					sendResponse(r.status, r.mimeType, r.header, r.data);
+				}
 
 				in.close();
 				is.close();
