@@ -2,6 +2,7 @@ package com.moonware.cameraserver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.NetworkInterface;
@@ -12,7 +13,6 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
 import org.apache.cordova.PluginResult.Status;
-import org.apache.http.conn.util.InetAddressUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +33,7 @@ public class CameraServer extends CordovaPlugin {
 
     /** Common tag used for logging statements. */
     private static final String LOGTAG = "CameraServer";
-    
+
     /** Cordova Actions. */
     private static final String ACTION_START_SERVER = "startServer";
     private static final String ACTION_STOP_SERVER = "stopServer";
@@ -65,7 +65,7 @@ public class CameraServer extends CordovaPlugin {
 
 
     private String www_root = "";
-	private int port = 8080;	
+	private int port = 8080;
 	private boolean localhost_only = false;
 
     private String json_info = "";
@@ -73,7 +73,7 @@ public class CameraServer extends CordovaPlugin {
 	private String localPath = "";
 	private WebServer server = null;
 	private String	url = "";
-	
+
 	private int brightness = 50;
 	private boolean torchEnabled = false;
 
@@ -82,10 +82,10 @@ public class CameraServer extends CordovaPlugin {
         PluginResult result = null;
         if (ACTION_START_SERVER.equals(action)) {
             result = startServer(inputs, callbackContext);
-            
+
         } else if (ACTION_STOP_SERVER.equals(action)) {
             result = stopServer(inputs, callbackContext);
-            
+
         } else if (ACTION_GET_URL.equals(action)) {
             result = getURL(inputs, callbackContext);
 
@@ -94,7 +94,7 @@ public class CameraServer extends CordovaPlugin {
 
         } else if (ACTION_GET_LOCAL_PATH.equals(action)) {
             result = getLocalPath(inputs, callbackContext);
-            
+
         } else if (ACTION_GET_NUM_REQUESTS.equals(action)) {
             result = getNumRequests(inputs, callbackContext);
 
@@ -132,12 +132,12 @@ public class CameraServer extends CordovaPlugin {
             Log.d(LOGTAG, String.format("Invalid action passed: %s", action));
             result = new PluginResult(Status.INVALID_ACTION);
         }
-        
+
         if(result != null) callbackContext.sendPluginResult( result );
-        
+
         return true;
     }
-    
+
     private String __getLocalIpAddress() {
     	try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
@@ -146,7 +146,7 @@ public class CameraServer extends CordovaPlugin {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     if (! inetAddress.isLoopbackAddress()) {
                     	String ip = inetAddress.getHostAddress();
-                    	if(InetAddressUtils.isIPv4Address(ip)) {
+                        if (inetAddress instanceof Inet4Address) {
                     		Log.w(LOGTAG, "local IP: "+ ip);
                     		return ip;
                     	}
