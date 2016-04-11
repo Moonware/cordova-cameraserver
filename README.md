@@ -23,7 +23,7 @@ Why over HTTP ?
     
 ## Dependency ##
 
-Since Cordova 4.0, it may be required to install the whitelist plugin to allow calls to **127.0.0.1** and **localhost**
+Since Cordova 4.0, it may be required to install the **cordova-plugin-whitelist** to allow calls to **127.0.0.1** and **localhost**
 
 Without this step, your application may not be allowed to pull and display images from the camera server plugin.
 
