@@ -1,4 +1,4 @@
-## CameraServer Plugin For Cordova ##
+#CameraServer Plugin For Cordova
 
 Supported platform:
 * iOS
@@ -11,13 +11,26 @@ Why over HTTP ?
 * A known memory leak problem occurs when retrieving data/result in Cordova (see [CameraPlus](https://github.com/Moonware/cordova-cameraplus/))
 * It's faster and purely in native code so it was suitable for our application <strong>Netcam Studio Smart Camera</strong>
 
-## How to use CameraServer? ##
+#How to use CameraServer?
 
-Add the plugin to your cordova project:
+## Add the plugin to your cordova project: ##
 
     cordova plugin add https://github.com/Moonware/cordova-cameraserver   
     
-## Javascript APIs ##
+## Removing the plugin to your cordova project: ##
+
+    cordova plugin rm cordova-plugin-cameraserver      
+    
+## Dependency ##
+
+Since Cordova 4.0, it may be required to install the whitelist plugin to allow calls to **127.0.0.1** and **localhost**
+
+Without this step, your application may not be allowed to pull and display images from the camera server plugin.
+
+Please follow installation and setup instructions here: [cordova-plugin-whitelist](https://github.com/apache/cordova-plugin-whitelist/)
+
+    
+#Javascript APIs
 
 ```javascript
 
@@ -40,7 +53,7 @@ getJpegImage( success_callback, error_callback );
 
 ```
 
-## Quick Start ##
+#Quick Start
 
 Start the Web Server
 
@@ -90,7 +103,7 @@ Displaying a Live Image in a Cordova App is as simple as:
 <img src='http://localhost:8080/live.jpg'>
 ```
 
-## Usage in applications ##
+#Usage in applications
 
 This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</strong>:
 
@@ -98,7 +111,7 @@ This plugin was developped for the needs of <strong>Netcam Studio Smart Camera</
 
 [Netcam Studio Smart Camera Android](https://play.google.com/store/apps/details?id=com.moonware.smart&hl=en)
 
-## Credits ##
+#Credits
 
 This Cordova plugin is  based on CorHttpd, thanks to the authors:
 
